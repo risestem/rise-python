@@ -2,7 +2,7 @@
 
 A modern, in-browser Python compiler built with Skulpt.js, Ace Editor, and Tailwind CSS. This project provides a simple and efficient way to write and execute Python code directly in your web browser, without any server-side dependencies.
 
-This project is a modernized implementation inspired by the original [online-python-compiler by ishaanbhimwal](https://github.com/ishaanbhimwal/online-python-compiler).
+This project was inspired by [online-python-compiler by ishaanbhimwal](https://github.com/ishaanbhimwal/online-python-compiler).
 
 ## Features
 
@@ -31,7 +31,3 @@ Simply open the `index.html` file in a modern web browser.
 - **Ace Editor**: As the code editor component.
 - **Tailwind CSS**: For styling the user interface.
 - **Font Awesome**: For icons.
-
-## Credits
-
-This project was developed by GitHub Copilot and is an enhanced version of the work done by [ishaanbhimwal](https://github.com/ishaanbhimwal) in the [online-python-compiler](https://github.com/ishaanbhimwal/online-python-compiler) repository.
