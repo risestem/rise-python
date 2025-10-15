@@ -13,8 +13,7 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
-    <!-- Placeholder for favicon -->
-    <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="assets/img/logo_final.svg" rel="icon" type="image/svg+xml" />
 
     <style>
         /* Simple style for the ACE editor and output */
@@ -23,9 +22,9 @@
         }
         #output {
             height: 200px; /* Default height */
-            background-color: #1a202c; /* gray-900 */
-            color: #e2e8f0; /* gray-300 */
-            border-top: 1px solid #4a5568; /* gray-600 */
+            background-color: #111827; /* Tailwind gray-900 */
+            color: #d1d5db; /* Tailwind gray-300 */
+            border-top: 1px solid #374151; /* Tailwind gray-700 */
             padding: 8px;
             font-family: monospace;
             resize: vertical;
@@ -34,50 +33,49 @@
             height: 100% !important;
             width: 100% !important;
         }
-        /* New styles for the autocomplete window */
         .ace_autocomplete {
-            max-width: 400px; /* Set a max-width for the popup */
-            max-height: 250px; /* Set a max-height for the popup */
-            overflow-y: auto; /* Add a scrollbar if content overflows */
-            font-size: 14px; /* Adjust font size for readability */
+            max-width: 400px;
+            max-height: 250px;
+            overflow-y: auto;
+            font-size: 14px;
         }
     </style>
 </head>
 
-<body class="bg-gray-800 text-white">
+<body class="bg-[#1F2937] text-white">
     <div id="wrapper" class="flex flex-col h-screen">
         <!-- Top Navigation Bar -->
-        <nav class="bg-gray-900 shadow-lg text-sm">
+        <nav class="bg-[#381C55] shadow-lg text-sm">
             <div class="w-full mx-auto px-4">
                 <div class="flex justify-between items-center">
                     <!-- Left side: Logo and actions -->
                     <div class="flex items-center space-x-2">
                         <!-- Logo -->
-                        <div class="flex items-center py-4 px-2 text-white">
-                             <i class="fa-brands fa-python fa-fw mr-2 text-xl"></i>
+                        <div class="flex items-center py-2 px-2 text-white">
+                             <img src="assets/img/logo_final.svg" alt="Logo" class="h-10 w-10 mr-2">
                              <span class="font-bold text-lg">Rise Python</span>
                         </div>
                          <!-- Primary Nav -->
                         <div class="hidden md:flex items-center space-x-1">
-                            <a href="#" onclick="main()" class="py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded transition duration-300"><i class="fa-solid fa-play fa-fw mr-1"></i>Run</a>
-                            <a href="#" onclick="document.querySelector('input[type=file]').click()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"><i class="fa-solid fa-folder-open fa-fw mr-1"></i>Open</a>
-                            <a href="#" onclick="toggleConsole()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"><i class="fa-solid fa-terminal fa-fw mr-1"></i>Console</a>
-                            <a href="#" onclick="saveCode()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"><i class="fa-solid fa-save fa-fw mr-1"></i>Save</a>
-                            <a href="#" onclick="downloadCode()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"><i class="fa-solid fa-download fa-fw mr-1"></i>Download</a>
-                            <a href="#" onclick="shareCode()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"><i class="fa-solid fa-share-alt fa-fw mr-1"></i>Share</a>
+                            <a href="#" onclick="main()" class="py-2 px-3 bg-[#6F3996] hover:bg-[#8750A0] text-white rounded transition duration-300"><i class="fa-solid fa-play fa-fw mr-1"></i>Run</a>
+                            <a href="#" onclick="document.querySelector('input[type=file]').click()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300"><i class="fa-solid fa-folder-open fa-fw mr-1"></i>Open</a>
+                            <a href="#" onclick="toggleConsole()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300"><i class="fa-solid fa-terminal fa-fw mr-1"></i>Console</a>
+                            <a href="#" onclick="saveCode()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300"><i class="fa-solid fa-save fa-fw mr-1"></i>Save</a>
+                            <a href="#" onclick="downloadCode()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300"><i class="fa-solid fa-download fa-fw mr-1"></i>Download</a>
+                            <a href="#" onclick="shareCode()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300"><i class="fa-solid fa-share-alt fa-fw mr-1"></i>Share</a>
                         </div>
                     </div>
 
                     <!-- Right side: Settings, GitHub, Mobile menu -->
                     <div class="flex items-center space-x-2">
                          <div class="hidden md:flex items-center space-x-1">
-                            <a href="#" onclick="kbShortcuts()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300" title="Keyboard Shortcuts"><i class="fa-solid fa-keyboard fa-fw"></i></a>
-                            <a href="#" onclick="aceSettings()" class="py-2 px-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300" title="Editor Settings"><i class="fa-solid fa-cog fa-fw"></i></a>
+                            <a href="#" onclick="kbShortcuts()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300" title="Keyboard Shortcuts"><i class="fa-solid fa-keyboard fa-fw"></i></a>
+                            <a href="#" onclick="aceSettings()" class="py-2 px-3 text-gray-300 hover:bg-[#4D2A7C] hover:text-white rounded transition duration-300" title="Editor Settings"><i class="fa-solid fa-cog fa-fw"></i></a>
                             <a href="https://github.com/risestem/rise-python" target="_blank" class="py-2 px-3 text-gray-300 hover:text-white rounded transition duration-300" title="GitHub Repository"><i class="fa-brands fa-github fa-fw text-lg"></i></a>
                          </div>
                         <!-- Mobile button -->
                         <div class="md:hidden flex items-center">
-                            <button class="mobile-menu-button p-2">
+                            <button class="mobile-menu-button p-2 text-gray-300 hover:text-white">
                                 <i class="fa-solid fa-bars"></i>
                             </button>
                         </div>
@@ -86,16 +84,16 @@
             </div>
             <!-- Mobile Menu -->
             <div class="mobile-menu hidden md:hidden p-2">
-                <a href="#" onclick="main()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-play fa-fw mr-1"></i>Run</a>
-                <a href="#" onclick="document.querySelector('input[type=file]').click()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-folder-open fa-fw mr-1"></i>Open</a>
-                <a href="#" onclick="toggleConsole()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-terminal fa-fw mr-1"></i>Console</a>
-                <a href="#" onclick="saveCode()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-save fa-fw mr-1"></i>Save</a>
-                <a href="#" onclick="downloadCode()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-download fa-fw mr-1"></i>Download</a>
-                <a href="#" onclick="shareCode()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-share-alt fa-fw mr-1"></i>Share</a>
-                <hr class="my-2 border-gray-600">
-                <a href="#" onclick="kbShortcuts()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-keyboard fa-fw mr-1"></i>Keyboard Shortcuts</a>
-                <a href="#" onclick="aceSettings()" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-solid fa-cog fa-fw mr-1"></i>Editor Settings</a>
-                <a href="https://github.com/risestem/rise-python" target="_blank" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded"><i class="fa-brands fa-github fa-fw mr-1"></i>GitHub</a>
+                <a href="#" onclick="main()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-play fa-fw mr-1"></i>Run</a>
+                <a href="#" onclick="document.querySelector('input[type=file]').click()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-folder-open fa-fw mr-1"></i>Open</a>
+                <a href="#" onclick="toggleConsole()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-terminal fa-fw mr-1"></i>Console</a>
+                <a href="#" onclick="saveCode()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-save fa-fw mr-1"></i>Save</a>
+                <a href="#" onclick="downloadCode()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-download fa-fw mr-1"></i>Download</a>
+                <a href="#" onclick="shareCode()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-share-alt fa-fw mr-1"></i>Share</a>
+                <hr class="my-2 border-gray-700">
+                <a href="#" onclick="kbShortcuts()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-keyboard fa-fw mr-1"></i>Keyboard Shortcuts</a>
+                <a href="#" onclick="aceSettings()" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-solid fa-cog fa-fw mr-1"></i>Editor Settings</a>
+                <a href="https://github.com/risestem/rise-python" target="_blank" class="block py-2 px-4 text-sm hover:bg-[#4D2A7C] rounded"><i class="fa-brands fa-github fa-fw mr-1"></i>GitHub</a>
             </div>
         </nav>
 
@@ -117,6 +115,7 @@ print(f"Current time: {time.asctime()}")
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ext-language_tools.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/theme-vibrant_ink.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js" type="text/javascript"></script>
     
