@@ -181,7 +181,7 @@ document.addEventListener('keydown', (event) => {
 
 // Initialize Ace Editor
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/tomorrow_night"); // Dark theme
+editor.setTheme("ace/theme/vibrant_ink"); // Purple-toned dark theme
 editor.session.setMode("ace/mode/python");
 editor.setShowPrintMargin(false);
 
